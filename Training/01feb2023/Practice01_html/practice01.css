@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+div{
+
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    margin-top: 10%;
+   
+
+}
+img{
+    height: 315px;
+    width: 215px;
+    vertical-align: middle;
+    border: 1px solid grey;
+}
+figcaption{
+    padding-left: 30%;
+    padding-top: 2px;
+    padding-bottom:2px ;
+    border: 1px solid grey;
+    background-color: rgb(177, 165, 165);
+}
+
+   
+p{
+    margin-top: 20px;
+    text-align: center;
+    color: grey;
+    align-items: center;
+    
+}
+hr{
+    margin-top: 30px;
+    color: grey;
+}
+
