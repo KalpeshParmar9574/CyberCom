@@ -1,0 +1,16 @@
+tr,th ,td, table{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th{
+    background-color: rgb(100, 235, 100);
+}
+td:nth-child(1){
+    background-color:rgb(44, 231, 187);
+}
+td:nth-child(3){
+    background-color: hotpink;
+}
+td:nth-child(4){
+    background-color:yellowgreen;
+}
