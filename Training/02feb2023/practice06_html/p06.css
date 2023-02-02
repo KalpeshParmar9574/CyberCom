@@ -1,0 +1,63 @@
+.contact{
+    margin-right: auto;
+    margin-left: auto;
+    margin-top:0;
+
+    height: 500px;
+    width: 300px;
+
+}
+.contact_title{
+    display: flex;
+    background-image: url(p06.jpg);
+    background-repeat: no-repeat;
+    background-size: inherit;
+    
+   
+    justify-content: center;
+    font-weight: 600;
+    font-size: large;
+    
+    margin-right: auto;
+    margin-left: auto;
+    height: 200px;
+    background-size: 100%;
+   
+}
+.contact_title p{
+    margin-top: 50px;
+    text-align: center; 
+    color: rgb(58, 57, 57);
+    font-size: larger;
+    font-weight: 600;
+}
+.form{
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+}
+form{ 
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+
+}
+form input{
+    margin: 6px; 
+    
+}
+form button{
+    margin-top: 10px; 
+    margin-left: 60px;
+    border: none;
+    border-radius: 20px;
+    background-color: rgb(237, 231, 237);
+    width: 40%;
+    font-weight: 400;
+    box-shadow: -3px -1px 10px 2px rgba(228, 31, 182, 0.5);
+}
+form button:hover{
+    background-color: purple;
+    color: white;
+    box-shadow: -3px -1px 10px 2px rgba(13, 3, 11, 0.5);
+}
