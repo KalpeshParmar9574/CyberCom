@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="p07.css">
+    
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="p07">
+        <form action="">
+
+            <fieldset>
+                <table>
+                    <legend>Your address</legend>
+
+
+                    <tr>
+                        <th colspan=""><label for="firstName">First Name</label></th>
+                        <td>
+                            <input type="text" name="firstName" id="firstName">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan=""><label for="lastName">Last Name</label></th>
+                        <td>
+                            <input type="text" name="lastName" id="lastName">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan=""><label for="cityName">City</label></th>
+                        <td>
+                            <input type="text" name="cityName" id="cityName">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan=""><label for="countryName">Country</label></th>
+                        <td>
+                            <input type="text" name="countryName" id="countryName">
+                        </td>
+                    </tr>
+
+
+                </table>
+            </fieldset>
+
+            <fieldset>
+                <table>
+                    <legend>Additional Details</legend>
+
+
+                    <tr>
+                        <th colspan=""><label for="biography">Biography</label></th>
+                        <td>
+                            <textarea name="biography" id="" cols="10" rows="3"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan=""><label for="img">image</label></th>
+                        <td>
+                            <input type="file" name="lastName" id="lastName">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan=""><label for="ageGroup">Age Group</label></th>
+                        <td>
+                            <select name="ageGroup" id="ageGroup">
+                                <option value="0-9">0 to 9</option>
+                                <option value="10-15">10 to 15</option>
+                                <option value="16-18">16 to 18</option>
+                            </select>
+                        </td>
+                    </tr>
+
+
+
+                </table>
+            </fieldset>
+            <fieldset>
+                <table>
+                    <legend>Intrest</legend>
+
+
+                    <tr>
+                        <th colspan=""><label for="hobbies">Hobbies</label></th>
+                        <td>
+                            <input type="checkbox" name="hobbies" value="Dancing">Dancing
+                            <input type="checkbox" name="hobbies" value="watching_movie">watching movie
+                            <input type="checkbox" name="hobbies" value="playing_soccore">playing soccore
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th colspan=""><label for="fav_car">Favourite car?</label></th>
+                        <td>
+                            <select name="fav_car" id="fav_car">
+                                <option value="volvo">Volvo</option>
+                                <option value="suzuki">Suzuki</option>
+                                <option value="MG">MG</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><label for="fav_pub_transport">Favourite Public Transport</label></th>
+                        <td>
+
+                            <select name="fav_pub_transport" id="">
+                                <option value="ground">
+                                    Ground  
+                                </option>
+                                <option value="water">
+                                    Ground  
+                                </option>
+                            </select>
+                        </td>
+
+
+                    </tr>
+
+
+                   <tr>
+                    <td >
+                        <button onclick="onClickChange()">submit </button>
+                    </td>
+                   </tr>
+                   
+
+
+                </table>
+            </fieldset>
+
+        </form>
+    </div>
+    <script src="p07.js"></script>
+</body>
+
+</html>
