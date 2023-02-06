@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/* practice08 css */
+/* main div css */
+.form{
+    background-color: rgb(159, 213, 233);
+    border: 1px solid black;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10%;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    border-radius: 5px;
+}
+/* genric css for all the inputes and labels */
+
+.title{
+    margin: 10px;
+    font-weight: 600;
+    font-size: large;
+}
+tr{
+    text-align: left;
+}
+th{
+    font-weight:300 ;
+}
+
+input{
+    margin-top: 5px;
+    border: none;
+    border-radius: 3px;
+}
+
+.personalDetails label{
+    margin-right: 26px;
+}
+.accountlInformation label{
+    margin-right: 0px;
+}
+.contactInformation label{
+    margin-right: 20px;
+}
+/* buttons css */
+th {
+   justify-items: 30px;
+}
+

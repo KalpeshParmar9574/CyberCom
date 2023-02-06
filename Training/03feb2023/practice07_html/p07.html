@@ -12,7 +12,7 @@
 
 <body>
     <div class="p07">
-        <form action="">
+        <form action="p07Submitpage.html" method="">
 
             <fieldset>
                 <table>
@@ -124,7 +124,10 @@
 
                    <tr>
                     <td >
-                        <button onclick="onClickChange()">submit </button>
+                        <button type="submit" onclick="onClickChange()">submit</button>
+                    </td>
+                    <td >
+                        <button type="reset" >reset</button>
                     </td>
                    </tr>
                    
@@ -135,7 +138,13 @@
 
         </form>
     </div>
-    <script src="p07.js"></script>
+    <!-- script is added for the redirection but not working find the reason why !!! -->
+    <script>
+       function onClickChange() {
+        location.replace("p07Submitpage.html")
+      }
+
+    </script>
 </body>
 
 </html>

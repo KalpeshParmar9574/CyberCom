@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    margin-right: auto;
+    margin-left: 5%;
+    margin-top: 10%;
+    width:fit-content ;
+    background-color: rgb(48, 213, 218);
+}
+.wrapper
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+.empStatement{
+    border: 1px solid black;
+    align-items: center;
+    margin: 5px;
+}
+
+.empStatement .title{
+    margin: 8px;
+}
+.empStatement input{
+    border-radius: 5px;
+    border-bottom: 2px;
+    border-top: 0px;
+    border-left:0px ;
+    border-right: 0px;
+    margin:5px;
+
+}
+
+.cob{
+    border: 1px solid black;
+    width: fit-content;
+    width: 900px;
+    margin: 5px;
+}
+.cob .title{
+    margin: 8px;
+}
+.cob input{
+    border-radius: 5px;
+    border-bottom: 2px;
+    border-top: 0px;
+    border-left:0px ;
+    border-right: 0px;
+    margin:5px;
+}
+#spouse_details {
+    display: none;
+}
+#accident_details {
+    display: none;
+}
+.drug_patient_details{
+    border: 1px solid black;
+    align-items: center;
+    margin: 5px;
+}
+.drug_patient_details input{
+    border-radius: 5px;
+    border-bottom: 2px;
+    border-top: 0px;
+    border-left:0px ;
+    border-right: 0px;
+    margin:5px;
+
+}
+.drug_patient_details .title{
+    margin: 8px;
+}
+.btn{
+    border: 1px solid white;
+    background-color: transparent;
+    border-radius: 5px;
+    font-weight: 400;
+    margin-left: 10px;
+    padding: 1px 2px;
+
+}
+.btn:hover{
+    background-color: white;
+    color: rgb(48, 213, 218);
+}

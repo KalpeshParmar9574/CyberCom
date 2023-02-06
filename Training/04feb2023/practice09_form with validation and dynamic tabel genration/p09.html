@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="p09.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <form action="">
+                <div class="empStatement">
+                    <h3 class="title">
+                        Employ Statement
+                    </h3>
+                    <label for="grp_con_No">Group Contract Number </label>
+                    <input type="text" id="grp_con_No"> 
+                    <label for="certi_No">Certificate Number</label>
+                    <input type="text" name="certi_No" id="certi_No"> <br>
+                    <label for="emp_last_name">Employ last name and given name</label>
+                    <input type="text" minlength="3" maxlength="20">
+                    <p>would you like to claim and payment into your bank account </p>
+                    <input type="checkbox" name="conf_pytm " id="conf_pytm"> Yes
+                    <label for="conf_pytm">I have include a valid cheque</label>
+
+                </div>
+                <div class="cob">
+                    <h3 class="title">
+                        COORDINATION OF BENEFITS
+                    </h3>
+                    <p>1.Does youre spouse and/or have coverage under any other medical plan or contract</p>
+                    <input type="checkbox" id="spouse_yes" onclick="spouseDetails(this)">Yes 
+                    <input type="checkbox" id="spouse_no" onclick="spouseDetails2(this)"> No
+                    <div class=" " id="spouse_details">
+                        if yes spouse's date of birth (DD/MM/YY) <input type="date" name="spouse_brth_date"
+                            id="spouse_brth_date">
+                        insurance compnay. policy number and certificate number <input type="policy_certi_no"> 
+                    </div>
+                    <p>2. is any expense the result of an accident?</p>
+                    <input type="checkbox" id="accident_yes" onclick="accidentDetails(this)"> Yes   <input type="checkbox" id="accident_no" onclick="accidentDetails2(this)"> No
+                    <div id="accident_details">
+                        if yes,Date of accident <input type="text"><br>
+                        Location of accident <input type="checkbox" id="accident_loc_work" value="accident_loc_work"
+                            name="accident_loc_work"> work
+                        <input type="checkbox" id="accident_loc_work" value="accident_loc_Home"
+                            name="accident_loc_Home"> Home
+                        <input type="checkbox" id="accident_loc_oth" value="accident_loc_oth" name="accident_loc_oth">
+                        Other
+                        Explain how the accident occured <input type="text" id="accident_details"
+                            name="accident_details" maxlength="200">
+
+                    </div>
+
+                </div>
+
+                <div class="drug_patient_details">
+                    <h3 class="title">DRUGS . VISION CARE, PARAMEDICAL SERVICES AND OTHERS-PATIENT INFORMATION</h3>
+                    <label for="patient_name">Patient Name</label>
+                    <input type="text" id="patient_name" name="patient_name">
+                    <label for="dob"> Date of Birth</label>
+                    <input type="date" id="dob_patient" name="dob_patient" value="dob_patient">
+                    <label for="realtion">Relationship to plan member</label>
+                    <input type="text" id="relation" name="relation"> <br>
+                    <label for="total_charge">Total Charge </label>
+                    <input type="number" id="total_charge" name="total_charge">
+                    <input type="button" value="Add Data" onclick="addData()">
+                    <input type="button" value="Remove Data" onclick="removeData()">
+                    <center>
+                        <table id="drug_patient_details_data" border="1">
+                            <tr>
+                                <th>Patient Name</th>
+                                <th>Date of Birth</th>
+                                <th>Relationship to plan member</th>
+                                <th>Total charge</th>
+                            </tr>
+
+                        </table>
+
+                    </center>
+
+                </div>
+
+        </div>
+    </div>
+    <script>
+        function addData() {
+            var ptn_name = document.getElementById('patient_name').value;
+            var dob = document.getElementById('dob_patient').value;
+            var relation = document.getElementById('relation').value;
+            var total_charge = document.getElementById('total_charge').value;
+            var table = document.getElementById('drug_patient_details_data')
+
+            var rowCount = table.rows.length;
+            var row = table.insertRow(rowCount);
+            row.insertCell(0).innerHTML = ptn_name;
+            row.insertCell(1).innerHTML = dob;
+            row.insertCell(2).innerHTML = relation;
+            row.insertCell(3).innerHTML = total_charge;
+        }
+        function removeData(){
+            var table = document.getElementById('drug_patient_details_data');
+            var rowCount = table.rows.length;
+            if(rowCount<1){
+                console.log(rowCount);
+                
+                // table.deleteRow(rowCount)
+            }
+           
+            
+          
+           
+            
+        }
+
+        // this way the function is not working function spouseDetails(){
+
+        //     var chk1 = documnet.getElementById('spouse_yes');
+        //     var chk2 = documnet.getElementById('spouse_no');
+        //     data_div = document.getElementById('spouse_details');
+        //     data_div.style.display = chk1.checked?"block":"none";
+        //     data_div.style.display = chk2.checked?"none":"block";s
+              
+        // }
+        function spouseDetails(spouse_yes){
+            
+            var data_div = document.getElementById('spouse_details');
+            data_div.style.display = spouse_yes.checked?"block":"none"; 
+        }
+        function spouseDetails2(spouse_no){
+           
+            var data_div = document.getElementById('spouse_details');
+            data_div.style.display = spouse_no.checked?"none":"block"; 
+        }
+        function accidentDetails(accident_yes){
+           
+            var data_div = document.getElementById('accident_details');
+            data_div.style.display = accident_yes.checked?"block":"none"; 
+        }
+        function accidentDetails2(accident_no){
+           
+           var data_div = document.getElementById('accident_details');
+           data_div.style.display = accident_no.checked?"none":"block"; 
+       }
+
+    </script>
+
+</body>
+
+</html>
