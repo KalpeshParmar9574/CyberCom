@@ -1,3 +1,6 @@
+
+// script for the dynamic table genration 
+// addData is add the new data from the inputs into the table
 function addData() {
     var ptn_name = document.getElementById('patient_name').value;
     var dob = document.getElementById('dob_patient').value;
@@ -12,6 +15,7 @@ function addData() {
     row.insertCell(2).innerHTML = relation;
     row.insertCell(3).innerHTML = total_charge;
 }
+// removeData removes the data from the row of the table 
 function removeData(){
     var table = document.getElementById('drug_patient_details_data');
     var rowCount = table.rows.length;
@@ -36,6 +40,8 @@ function removeData(){
 //     data_div.style.display = chk2.checked?"none":"block";s
       
 // }
+
+// script for the check box responses 
 function spouseDetails(spouse_yes){
     
     var data_div = document.getElementById('spouse_details');
