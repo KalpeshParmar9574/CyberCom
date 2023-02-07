@@ -29,7 +29,6 @@
                     <th><label for="dob">Date Of Birth</label></th>
                     <td><input requirerd type="date" name="dob" id="dob"></td>
                 </tr>
-
                 <tr>
                     <th> <label for="gender">Gender</label></th>
                     <td><select required name="gender" id="gender">
@@ -38,7 +37,6 @@
                             <option value="other">other</option>
                         </select> </td>
                 </tr>
-
             </table>
             <!-- Account information details div -->
             <table class="accountlInformation">
@@ -57,8 +55,6 @@
                     <td>
                         <input type="text" name="re_email" id="re_email">
                     </td>
-
-
                 </tr>
                 <tr>
                     <th>
@@ -67,21 +63,14 @@
                     <td>
                         <input requirerd type="password" name="pass" id="pass" minlength="8">
                     </td>
-
-
                 </tr>
                 <tr>
-
                     <th>
                         <label for="re_pass">ReType Password</label>
-
                     </th>
                     <td>
                         <input requirerd type="password" name="re_pass" id="re_pass" minlength="8">
                     </td>
-
-
-
                 </tr>
                 <tr>
                     <th>
@@ -94,7 +83,6 @@
                             <option value="other">other</option>
                         </select>
                     </td>
-
                 </tr>
                 <tr>
                     <th>
@@ -103,11 +91,7 @@
                     <td>
                         <input required type="text" name="security_ans" id="security_ans">
                     </td>
-
-
                 </tr>
-
-
             </table>
             <!-- contact information div -->
             <table class="contactInformation">
@@ -120,7 +104,6 @@
                     <td>
                         <input name="addr" id='addr' type="text" maxlength="250" required>
                     </td>
-
                 </tr>
                 <tr>
                     <th><label for="city">city</label></th>
@@ -128,7 +111,6 @@
                         <input type="text" name="city" id="city">
                 </tr>
                 </td>
-
                 <tr>
                     <th>
                         <label for="state">State</label>
@@ -140,16 +122,12 @@
                             <option value="RJ">Rajasthan</option>
                         </select>
                     </td>
-
-
                 </tr>
                 <tr>
                     <th> <label for="zipCode">Zip Code</label></th>
                     <td>
                         <input type="number" name="zipCode" id="zipCode" required minlength="5" maxlength="5">
                     </td>
-
-
                 </tr>
                 <tr>
                     <th>
@@ -158,95 +136,24 @@
                     <td>
                         <input name='phn' type="tel" required maxlength="10">
                     </td>
-
                     <td>
                         <select name="type_phn" id="type_phn">
                             <option value="MB">Mobile</option>
                             <option value="tel">Telephone</option>
                         </select>
-
                     </td>
-
                 </tr>
                 <tr>
                     <th>
                         <button class="btn_sb" onclick="v()" type="submit">Submit</button>
+                        <button onclick="storeData()">addData </button>
                     </th>
-
                 </tr>
-
             </table>
-
         </form>
-        <button class="btn_sb" onclick="check()" type="submit">Submit</button>
 
     </div>
-    <script>
-
-
-
-        function inputCheck() {
-
-            const email = document.getElementById('email').value;
-            const regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-            const pass = document.getElementById('pass');
-            const re_pass = document.getElementById('re_pass');
-
-            // for email check
-            function check() {
-                if (emailCheck() && passCheck()) {
-                    return true;
-                } else {
-                    return false;
-
-                }
-            }
-            function emailCheck() {
-                if (regex.test(email)) {
-                    if (email == re_email) {
-
-                        return true
-                    } else {
-                        alert('email is not match with Retype email');
-                        return false;
-                        
-                    }
-                } else {
-                    alert('email is not valid ');
-                    return false
-                }
-            }
-            function passCheck() {
-
-                if (pass !== re_pass) {
-                    alert('password is not match with Re type password');
-                    return false;
-                } else {
-                    return true;
-                }
-            }
-
-            // for pass check 
-
-        }
-
-
-        function passCheck() {
-            const reg_pass = /^[a-zA-Z0-9!#$%&'*+/=?^_]*$/;
-            if (reg_pass.test(pass)) {
-                alert('enterd valid pass');
-            }
-
-        }
-   // 
-   
-
-
-    }
-
-
-
-
+    <script src="p08.js">
     </script>
 </body>
 

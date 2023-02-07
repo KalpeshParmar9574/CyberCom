@@ -18,11 +18,8 @@ function addData() {
 // removeData removes the data from the row of the table 
 function removeData(){
     var table = document.getElementById('drug_patient_details_data');
-    var rowCount = table.rows.length;
-    if(rowCount<1){
-        console.log(rowCount);
-        
-        // table.deleteRow(rowCount)
+    if(table.childElementCount>1){
+        table.removeChild();
     }
    
     
@@ -31,15 +28,16 @@ function removeData(){
     
 }
 
-// this way the function is not working function spouseDetails(){
-
-//     var chk1 = documnet.getElementById('spouse_yes');
-//     var chk2 = documnet.getElementById('spouse_no');
-//     data_div = document.getElementById('spouse_details');
-//     data_div.style.display = chk1.checked?"block":"none";
-//     data_div.style.display = chk2.checked?"none":"block";s
+// this way the function is not working
+function spouseDetails() {
+debugger
+    var chk1 = documnet.getElementById('spouse_yes');
+    var chk2 = documnet.getElementById('spouse_no');
+    data_div = document.getElementById('spouse_details');
+    data_div.style.display = chk1.checked?"block":"none";
+    data_div.style.display = chk2.checked?"none":"block";
       
-// }
+}
 
 // script for the check box responses 
 function spouseDetails(spouse_yes){

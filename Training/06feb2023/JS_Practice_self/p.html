@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+		function fun() {
+			var btn = document.createElement("button");
+			btn.innerHTML = "Click me";
+			document.body.appendChild(btn);
+		}
+        function addDataToList() {
+			var btn = document.createElement("li");
+            var lis = document.getElementById("lis");
+			btn.innerHTML = "new";
+			lis.appendChild(btn);
+		}
+       function removeData(){
+        var lis = document.getElementById("lis");
+        lis.removeChild(lis.firstElementChild);
+       }
+	</script>
+    <style>
+        .demo{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="div" class="test">
+        <button onclick = "fun()" > click me </button>
+    </div>
+   <p id="para">
+     by id select this para.
+   </p>
+   <p class="para"> by class this para is selected </p>
+   <h5 id="title">
+    by tag name this heading is selected 
+   </h5>
+   <button onclick="selectbyid()">select By id </button>
+   <button onclick="selectbyclass()"> select by classname</button>
+   <button onclick="byTagName()">by tag</button>
+   <button onclick="getAtrr()">getAtrr</button>
+   <button onclick="addclass()">add class</button>
+   <button onclick="addDataToList()">add data</button>
+   <button onclick="removeData()">remove data</button>
+
+
+   <!-- create and remove element functionality of js  -->
+   <ul id="lis">
+    <li>one</li><li>two</li><li>three</li>
+   </ul>
+   <script>
+    // issue01
+    var txt = document.getElementsByClassName("para");
+    txt.style.color="red"; 
+
+     var txt2 = document.getElementById('title').textContent;
+     console.log(txt2);
+        
+
+
+
+
+
+
+    function selectbyid(){
+        var para = document.getElementById('para');
+        para.innerHTML='new para'
+    }
+    function selectbyclass(){
+        var p = document.getElementsByClassName('para');
+        p.innerHTML='new para by js';
+    }
+    function byTagName(){
+        var p = document.getElementsByTagName('p');
+        console.log(p);
+    }
+    function addclass(){
+        document.getElementById("title").setAttribute("class", "demo"); 
+    }
+    function getAtrr(){
+        var div = document.getElementById("div");
+        const atrr = div.getAttribute("id");
+        console.log(atrr);
+    }
+
+
+   </script>
+</body>
+</html>
