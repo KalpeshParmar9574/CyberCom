@@ -1,0 +1,10 @@
+1. Create an array of numbers and write code to calculate the sum, average, and maximum 
+value of the numbers in the array.
+2. Create an array of strings and write code to find the longest string in the array.
+3. Create an array of objects and write code to sort the objects based on a specific 
+property (e.g., name, age, etc.).
+4. Write a function that takes an array as an argument and returns a new array with 
+duplicates removed.
+5. Write a function that takes two arrays as arguments and returns a new array that 
+combines the elements of both arrays, removing any duplicates.
+6. Create an array of strings and write code to sort the strings in alphabetical order.
