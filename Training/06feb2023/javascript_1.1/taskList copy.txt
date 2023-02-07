@@ -1,0 +1,10 @@
+Create a webpage with a button and a paragraph. Use JavaScript to change the text of 
+the paragraph when the button is clicked.
+2. Create a webpage with a list of items. Use JavaScript to add or remove items from the 
+list.
+3. Create a webpage with multiple buttons and paragraphs. Use JavaScript to change the 
+text of different paragraphs based on which button is clicked.
+4. Create a form with input fields and a submit button. Use JavaScript to validate the form 
+data and display error messages if any of the fields are invalid.
+5. Create a webpage with multiple images. Use JavaScript to change the source of the 
+images based on user interaction
