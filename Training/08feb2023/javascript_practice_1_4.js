@@ -6,7 +6,7 @@
     let maxArea = 0, left = 0, right = height.length-1
     while(left < right){
         let width = right - left
-        maxArea = Math.max(maxArea,  Math.min(height[left],height[right]) * width+1)
+        maxArea = Math.max(maxArea,  Math.min(height[left],height[right]) * width)
         height[left] < height[right] ? left++ : right--
     }
     return maxArea
