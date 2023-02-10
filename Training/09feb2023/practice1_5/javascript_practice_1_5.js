@@ -8,9 +8,39 @@
 // by inserting dots into s. You are not allowed to reorder or remove any digits in s. You may
 // return the valid IP addresses in any order.
 
+var ip = "2552551113";
 
+var ipProblem = function(s) {
+    var res = [];
+    helper(s, 0, [], res);
+    return res;
+  };
+  
+  var helper = function (s, start, now, res) {
+    var str = '';
+    var num = 0;
+  
+    if (now.length === 4) {
+      if (start === s.length) res.push(now.join('.'));
+      return;
+    }
+  
+    for (var i = 1; i <= 3; i++) {
+      str = s.substr(start, i);
+      if (str.length === 1 || str[0] !== '0') {
+        num = Number(str);
+        if (0 <= num && num <= 255) {
+          now.push(num);
+          helper(s, start + i, now, res);
+          now.pop();
+        }
+      }
+    }
+  };
 
+console.log(ipProblem(ip));
 
+// case02
 
 // const nums = [6,5,-1,6,-4,5]
 // let targetValue=5

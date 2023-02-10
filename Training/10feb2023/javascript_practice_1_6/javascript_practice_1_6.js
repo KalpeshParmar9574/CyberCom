@@ -54,23 +54,53 @@
 /**
  *
  */
+ var s = "22";
 
-// var s = " 584545";
-// var case06 = s => {
-//   let dp = Array(s.length + 1).fill(0);
-//   dp[0] = 1;
-//   dp[1] = s[0] === '0' ? 0 : 1;
-  
-//   for(let i = 2, n = s.length + 1; i < n; i++) {
-//       const twoDigit = Number(s.substring(i - 2, i));
-      
-//       if (Number(s.substring(i - 1, i)) > 0)
-//           dp[i] += dp[i - 1];
-      
-//       if (twoDigit > 9 && twoDigit < 27)
-//           dp[i] += dp[i - 2];
-//   }
-  
-//   return dp.pop();
-// };
-// console.log(case06(s));
+const case06 = (s) => {
+  const decoder = {
+    1: "A",
+    2: "B",
+    3: "C",
+    4: "D",
+    5: "E",
+    6: "F",
+    7: "G",
+    8: "H",
+    9: "I",
+    10: "J",
+    11: "K",
+    12: "L",
+    13: "M",
+    14: "N",
+    15: "O",
+    16: "P",
+    17: "Q",
+    18: "R",
+    19: "S",
+    20: "T",
+    21: "U",
+    22: "V",
+    23: "W",
+    24: "X",
+    25: "Y",
+    26: "Z",
+  };
+
+  let ways = new Array(s.length + 1).fill(0);
+  ways[0] = 1; // [1, 0, 0, ...., 0]
+
+  for (let i = 1; i <= s.length; i++) {
+    for (let j = 0; j <= i - 1; j++) {
+      let substr = s.substring(j, i);
+        // console.log(substr);
+      if (substr in decoder) {
+        ways[i] += ways[j];
+        console.log(" inside the condition : " + ways);
+      }
+    }
+  }
+
+  return ways.at(-1);
+};
+
+console.log("possible number of ways :- " + case06(s));
