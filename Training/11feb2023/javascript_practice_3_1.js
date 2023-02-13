@@ -29,7 +29,7 @@ function validate() {
     })
 }
 validate().then((display) => {
-    display();
+    display();  
 })
 
 /*** Code  */
