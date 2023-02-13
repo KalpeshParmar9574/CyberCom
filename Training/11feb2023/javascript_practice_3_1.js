@@ -10,6 +10,27 @@
 // should be arrow function and return promise with "resolve" state if
 // all the validations are correct. return "reject" if any of the
 // validation is not correct and display proper error message.
+function display() {
+    alert("your form is submitted with correct values ")
+}
+function validate() {
+    var fname = document.getElementById("fname");
+    var lname = document.getElementById("lname");
+    return new Promise((resolve, reject) => {
+        if (fname == "" || lname == "") {
+            alert("name is not valid");
+        return reject;
+        }
+        // if (email.test(regx)) {
+        //     alert("name is not valid");
+        // return reject;
+        // }
+        return resolve(display)
+    })
+}
+validate().then((display) => {
+    display();
+})
 
 /*** Code  */
 
@@ -93,26 +114,6 @@
 // }
 
 //**03*/code is completed with async and awaitc
-async function  display  (){
-    try {
-        await time(5000)
-        function one() {
-            console.log("function one is runn now")
-        }
-        await time(10000)
-         function two() {
-             console.log("function two is runn now")
-          }
-        await time(15000)
-          function three() {
-              console.log("function three is runn now")
-          }
-    } catch {
-        
-    }
-    
-}
 
 
 
-display();
