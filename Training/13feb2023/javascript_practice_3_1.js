@@ -223,6 +223,6 @@ init().then((data) => {
 })
 function one(data) {
     setTimeout(() => {
-        console.log("this function is runn after 10 sec " + data);
+        console.log("this function is runn after 10 sec" + data);
     },5000)
 }
