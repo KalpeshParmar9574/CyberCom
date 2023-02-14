@@ -10,31 +10,32 @@
 // should be arrow function and return promise with "resolve" state if
 // all the validations are correct. return "reject" if any of the
 // validation is not correct and display proper error message.
-function display() {
-    alert("your form is submitted with correct values ")
-}
-function validate() {
-    var fname = document.getElementById("fname");
-    var lname = document.getElementById("lname");
-    return new Promise((resolve, reject) => {
-        if (fname == "" || lname == "") {
-            alert("name is not valid");
-        return reject;
-        }
-        // if (email.test(regx)) {
-        //     alert("name is not valid");
-        // return reject;
-        // }
-        return resolve(display)
-    })
-}
-validate().then((display) => {
-    display();  
-})
+// 01 code with promises
+// function display() {
+//     alert("your form is submitted with correct values ")
+// }
+// function validate() {
+//     var fname = document.getElementById("fname");
+//     var lname = document.getElementById("lname");
+//     return new Promise((resolve, reject) => {
+//         if (fname == "" || lname == "") {
+//             alert("name is not valid");
+//         return reject;
+//         }
+//         // if (email.test(regx)) {
+//         //     alert("name is not valid");
+//         // return reject;
+//         // }
+//         return resolve(display)
+//     })
+// }
+// validate().then((display) => {
+//     display();
+// })
 
-/*** Code  */
 
-// case02 //
+
+//******** */ case02 //
 
 
 // Create a web application that contains three async functions,
@@ -49,7 +50,7 @@ validate().then((display) => {
 // output from two
 // output from third
 
-//**01 */ code is done by promise
+//**02 */ code is done by promise
 
 // function one() {
     
@@ -113,7 +114,115 @@ validate().then((display) => {
 //     console.log("this function is call after 15 sec")
 // }
 
-//**03*/code is completed with async and awaitc
+//02  code is with async and awaitc
+
+// async function init() {
+     
+//     let first = new Promise ((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve ("function one is completed after 5 sec with async ");
+//         },5000)
+//     })
+      
+//     let second = new Promise ((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve ("function one is completed after 10 sec with async ");
+//         },10000)
+//     })
+//     let third = new Promise ((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve ("function one is completed after 15 sec with async ");
+//         },15000)
+//     })
 
 
+//      console.log("initial function is started ");
+//      let firstFunction =  await first;
+//      console.log(firstFunction);
+//      let secondFunction = await second;
+//      console.log(secondFunction);
+//      let thirdFunction = await third;
+//      console.log(thirdFunction);
 
+// }
+ 
+
+
+///***** case 03  */
+// Create a web application that contains three callbacks' functions.
+// One function that contains delay of 10s, once this is executed, second
+// function will start executing (with 10s delay).
+// Once second function will be executed, third function will start
+// executing (with 8s delay).
+// Each function will have console statement stated as "X function is
+// start executing"
+
+
+// code with async await
+
+
+// async function init() {
+     
+//         let first = new Promise ((resolve, reject) => {
+//             setTimeout(() => {
+//                 resolve ("function one is completed after 5 sec with async ");
+//             },8000)
+//         })
+          
+//         let second = new Promise ((resolve, reject) => {
+//             setTimeout(() => {
+//                 resolve ("function one is completed after 10 sec with async ");
+//             },10000)
+//         })
+        
+    
+    
+//          console.log("initial function is started ");
+//          let firstFunction =  await first;
+//          console.log(firstFunction);
+//          let secondFunction = await second;
+//          console.log(secondFunction);
+        
+    
+//     }
+// init();
+
+//*** */ code with call backs
+
+// function init(one) {
+
+//     console.log("initial function is start execution ")
+//     setTimeout((two) => {
+//         one(two)
+//     }, 10000);
+// }
+// function one() {
+//     console.log("this function is run after 8 second")
+//     setTimeout((two) => {
+//         two();
+//     },8000)
+// }
+// function two() {
+//     console.log("this is first function which is runn after 8 sec ")
+// }
+// init(one);
+
+///** code with promises  */
+
+function init() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log("this function  is run after 5 sec ")
+            data = "hello";
+            resolve(data);
+        },5000)
+    })
+}
+init().then((data) => {
+    one(data);
+})
+function one(data) {
+    setTimeout(() => {
+        console.log("this function is runn after 10 sec" + data);
+    },5000)
+}

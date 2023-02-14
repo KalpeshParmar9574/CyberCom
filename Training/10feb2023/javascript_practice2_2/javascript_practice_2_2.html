@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="javascript_practice_2.2.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="cal" class="case">
+
+        <div class="row">
+            <input type="number" class="inp" name="" id="" >
+        </div>
+        <div class="row">
+                <button class="btn" value="1">1</button>
+                <button class="btn" value="2">2</button>
+                <button class="btn" value="3">3</button>
+        </div>
+        <div class="row">
+            <button class="btn" value="4">4</button>
+            <button class="btn" value="5">5</button>
+            <button class="btn" value="6">6</button>
+    </div>
+    <div class="row">
+        <button class="btn" value="7">7</button>
+        <button class="btn" value="8">8</button>
+        <button class="btn" value="9">9</button>
+</div>
+<div class="row">
+    <button class="btn" id="zeroBtn" value="0">0</button>  
+</div>
+<div class="row">
+    <button class="btn" onClick="calculate()"value="+">+</button>  
+    <button class="btn" value="-">-</button>
+    <button class="btn" value="*">*</button>
+</div>
+<div class="row">
+    <button class="btn" value="/">/</button>  
+    <button class="btn" id="clearBtn" value="clear">clear</button>  
+</div>
+<button class="" id="equalBtn" value="=">=</button>  
+
+
+
+    </div>
+
+     <div class="case">
+        <h2>Case02</h2>
+        <label for="height">Height</label>
+        <input type="number" name="" id="height" placeholder="Enter your height in meters only">
+        <label for="weight">Weight</label>
+        <input type="number" id="weight" placeholder="Enter your weight in kg only">
+        <button onclick="BMI()">Check Your BMI</button> <small class="msg" id="result02">Your BMI is ${userBMI}. You are OverWeight</small>
+     </div>
+     <div class="case">
+        <h2>Case04</h2>
+        <label for="dob">choose your date of birth</label>
+        <input type="date" name="" id="dob"> <small class="msg" id="msg"></small>
+         <button onclick="age()"> calculate age </button>
+         <p id="result4"></p>
+     </div>
+   
+     <script src="javascript_practice2.2.js"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.case {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    border: 1px solid black;
+    padding: 5px;
+    width: 500px;
+    height: max-content;
+}
+
+.case h2 {
+    text-align: center;
+}
+
+.case input {
+    margin: 10px;
+}
+
+.msg {
+    margin-left: 15px;
+    font-weight: 600;
+
+}
+
+/* 
+calculator UI */
+#cal {
+    background-color: rgb(89, 183, 233);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+}
+.row{
+    margin-left: 30%;
+}
+.btn {   
+
+    margin-left: 2%;
+    padding: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+
+}
+.inp{
+    width: 165px;
+    height: 30px;
+}
+#zeroBtn{
+    margin-left:70px;
+}
+#clearBtn{
+    padding: 20px 40px;
+}
+#equalBtn{
+    margin: -3px;
+    padding: 10px;
+}
