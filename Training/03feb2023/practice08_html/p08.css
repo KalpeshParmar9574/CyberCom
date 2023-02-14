@@ -50,3 +50,7 @@ th {
    justify-items: 30px;
 }
 
+.error{
+  color: red;
+  font-weight: 500;
+}

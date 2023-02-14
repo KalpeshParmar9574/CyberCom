@@ -11,19 +11,20 @@
 
 <body>
     <!-- form for collecting user data it is also validate it -->
-    <div class="form">
-        <form action="" id='form'>
+    <div class="form" onsubmit="return validation ()">
+        <form action="" id='myform'>
             <!-- personal details div  -->
             <table class="personalDetails">
                 <p class="title">Personal Details</p>
                 <tr>
                     <th> <label for="firstName">First Name</label></th>
 
-                    <td> <input name="firstName" id='firstName' type="text" maxlength="25" required> </td>
+                    <td> <input name="firstName" id='fname' type="text" maxlength="25" required>
+                    <span class="error" id="nameErr"></span> </td>
                 </tr>
                 <tr>
                     <th> <label for="lastName">Last Name</label></th>
-                    <td> <input maxlength="25" required type="text" name="lastName" id="lastName"> </td>
+                    <td> <input maxlength="25" required type="text" name="lname" id="lastName"> </td>
                 </tr>
                 <tr>
                     <th><label for="dob">Date Of Birth</label></th>
@@ -45,7 +46,7 @@
                 <tr>
                     <th><label for="email">Email</label></th>
                     <td>
-                        <input name="email" id='email' type="text" required>
+                        <input name="email" id='email' type="text" required> <span clsss ="error"id="emailErr">h</span>
                     </td>
                 </tr>
                 <tr>
@@ -103,6 +104,7 @@
                     </th>
                     <td>
                         <input name="addr" id='addr' type="text" maxlength="250" required>
+                        <span></span>
                     </td>
                 </tr>
                 <tr>
@@ -151,7 +153,7 @@
                 </tr>
             </table>
         </form>
-
+<button onclick="validation()">check</button>
     </div>
     <script src="p08.js">
     </script>
