@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css files/dashboard.css">
+    <script src="../jsfiles/loginsession.js">   </script>
+   
+    <title>DashBoard</title>
+</head>
+<body onload="_loginSession()">
+    <div class="nav">
+            <p class="currentUser" >user name</p>
+
+            <div class="nav_item">
+                  <div class="item " id="dashBoard" onclick="_dashBoardButtonClick()">
+                    Dashboard
+                  </div>
+                  <div class="item " id="users" onclick="_usersdButtonClick()">
+                    Users
+                  </div>
+                  <div class="item item-active" id="loginSessions" onclick="_loginSessionsdButtonClick()">
+                    Login Sessions
+                  </div>
+                  <div class="item" id="logout" onclick="_logoutButtonClick()">
+                    Logout
+                  </div>
+            </div>
+    </div>
+    <div class="body">
+         <p class="title"> User Data</p>
+         <div class="userDataContainer">
+           
+            <table border="1" id="loginDetails">
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Login Date Time 
+                    </th>
+                    <th>
+                        Logout Date Time
+                    </th>
+                   
+                </tr>
+              
+            </table>
+         </div>
+    </div>
+
+</body>
+</html>

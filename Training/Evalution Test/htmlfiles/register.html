@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css files/form.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="form">
+            <h2 id="title">Registration</h2>
+            <form action="dashBoard.html" onsubmit="return _regValidation ()" id="regForm">
+                <table>
+                    <tr>
+                        <td><input type="text" name="Name" id="Name" placeholder="Name" required minlength="3"
+                                maxlength="16"> <span class="error" id="nameErr"></span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input id="email" required type="" placeholder="Email"><span class="error"
+                                id="emailErr"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="password" placeholder="password" name="password" id="pass" required> <span
+                                class="error" id="passErr"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="password" placeholder="Confirm password" name="re_password" id="re_pass"
+                                required><span class="error" id="rePassErr"></span>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <select name="city" id="city" required>
+                                <option value="" selected disabled hidden>select city</option>
+                                <option value="ahmedabad">Ahmedabad</option>
+                                <option value="surat">Surat</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <select name="state" id="state" required>
+                                <option value="" selected disabled hidden>select state</option>
+                                <option value="guj">Gujarat</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <input type="checkbox" id="checkbox" required> Tearm & Conditions </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <button type="submit">Submit</button>
+                        </td>
+                    </tr>
+                </table>
+               
+
+            </form>
+          
+        </div>
+    </div>
+    <script src="../jsfiles/form.js"></script>
+</body>
+
+</html>

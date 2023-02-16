@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css files/dashboard.css">
+   
+    <title>DashBoard</title>
+</head>
+
+  <body onload="_onloadDashBoard()">
+    <div class="nav">
+            <p class="currentUser" >user name</p>
+
+            <div class="nav_item">
+                  <div class="item item-active" id="dashBoard" onclick="_dashBoardButtonClick()">
+                    Dashboard
+                  </div>
+                  <div class="item" id="users" onclick="_usersdButtonClick()">
+                    Users
+                  </div>
+                  <div class="item" id="loginSessions" onclick="_loginSessionsdButtonClick()">
+                    Login Sessions
+                  </div>
+                  <div class="item" id="logout" onclick="_logoutButtonClick()">
+                    Logout
+                  </div>
+            </div>
+    </div>
+    <div class="body">
+         <p class="title"> Dashboard</p>
+         <div class="userDataContainer">
+            <div class="userData" id="card01">
+                <p>Users<18 </p>
+                    <h4 id="below18">user data</h4>
+            </div>
+            <div class="userData" id="card02">
+                <p>Users 18 -50 </p>
+                    <h4 id="between18to50">user data</h4>
+
+            </div>
+            <div class="userData" id="card03">
+                <p>Users>50 </p>
+                    <h4 id="above50">user data</h4>
+            </div>
+         </div>
+    </div>
+    <script src="../jsfiles//dashBoard.js">   </script>
+</body>
+</html>

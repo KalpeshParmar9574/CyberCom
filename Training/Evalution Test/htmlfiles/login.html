@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css files/loginForm.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="form">
+            <h2 id="title">Login</h2>
+            <form  onsubmit="return _loginValidation()" id="loginForm">
+                <table>
+                    <tr>
+                        <td><input autocomplete="off" type="text" name="email" id="email" placeholder="email"> <span class="error"
+                                id="emailErr"></span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input id="pass" type="password" placeholder="password"> <span class="error" id="passErr"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button type="submit">Login</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button onclick="_redirectlg()">Registration </button>
+
+                        </td>
+                    </tr>
+                </table>
+
+            </form>
+            
+        </div>
+    </div>
+    <script src="../jsfiles/form.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    border: 1px solid black;
+    height: 500px;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+    display: flex;
+  
+
+}
+.form{
+  margin-top: 20%;
+  margin-left: auto;
+
+ height:340px;
+ width: 500px;
+ padding: 20px;
+margin-right: 50px;
+margin-left: 30px;
+ background-color: rgb(241, 192, 192);
+}
+.form input , select {
+    margin-left: 20px;
+    margin-top: 10px;
+    height: 20px;
+   
+    width: 200px;
+}
+.form #checkbox{
+    width: 20px;
+}
+.form button{
+    margin-top: 5px;
+    margin-left: 50px;
+    height: 30px;
+    width: 80px;
+    border-radius: 5px;
+    background-color: yellow;
+    color: white;
+    font-size:14px ;
+    font-weight: 400px;
+}
+ #title{
+     margin-left: 25%;
+
+}

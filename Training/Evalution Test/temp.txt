@@ -1,0 +1,77 @@
+ await _checkUserDetailsInDB(email, pass).then((item) => {
+        let currentUserInfo = [{
+            userId: item,
+            userEmail : email,
+        }]
+        sessionStorage.setItem('user_data', JSON.stringify(currentUserInfo));
+        return submit;
+    }).catch(() => {
+         alert("error in the system please try after some time ")
+    }) 
+     
+
+    userDataLS.forEach((item) => {
+        if (item.age < 18) {
+            useNumberLessThan18 ++;
+        }
+        if (item.age <= 50) {
+            userNumberBetween18to50+1;
+        } if (item.age > 50) {
+            userNumberAbove50 +1;
+        }
+
+        // login form backup code 
+         // code is update with login session details 
+         for (let item = 0; item <= adminData.length; item++) {
+            if (adminData[item].email !== email && userData[item].email!==email) {
+                _errorDisplay("Email is not  register please register ", "email")
+                submit = false;
+                return submit;
+            }
+            if (adminData[item].pas !== pass && userData[item].pass!==pass) {
+                _errorDisplay("password is not match  try again  ", "pass")
+                submit = false;
+                return submit;
+            }
+            if (userData[item].email == email) {
+                let sessionUserData = [{
+                    name: userData[item].name,
+                    logiDate: Date(),
+                }]
+                sessionStorage.setItem('userLoginData', JSON.stringify(sessionUserData));
+            } else {
+                let sessionUserData = [{
+                    id: item,
+                    name: adminData[item].name
+                }]
+                sessionStorage.setItem('currentAdminData', JSON.stringify(sessionUserData));
+            }
+           
+            return submit;
+        }
+
+
+        function updateUser(i) {
+            let data = JSON.parse(localStorage.getItem("Users"));
+            console.log(data);
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            let birthDate = document.getElementById("birth_date").value;
+          
+            const addBtn = document.getElementById("add-btn");
+            const editBtn = document.getElementById("edit-btn");
+            addBtn.classList.remove("d-none");
+            editBtn.classList.add("d-none");
+          
+            console.log(name);
+            data[i].name = name;
+            data[i].email = email;
+            data[i].password = password;
+            data[i].birthDate = birthDate;
+          
+            localStorage.setItem("Users", JSON.stringify(data));
+        }
+        ///
+
+error is resolve
