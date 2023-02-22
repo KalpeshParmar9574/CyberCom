@@ -1,0 +1,101 @@
+-- ------------------CASE 1-------------------
+create database sql_practice02_2;
+CREATE TABLE sql_practice02_2.activity (
+    player_id INT AUTO_INCREMENT NOT NULL,
+    device_id INT,
+    event_date DATE,
+    games_played INT,
+    PRIMARY KEY (player_id , event_date)
+);
+alter table sql_practice02_2 . activity ;
+
+
+insert into sql_practice02_2 . activity ( 
+player_id ,
+device_id,
+event_date,
+games_played
+)value
+ (
+ 1,2,'2016-03-01',5
+),
+( 
+ 1,2,'2016-05-02',6
+),
+( 2,3 ,'2017-06-25',1
+),
+( 3,1,'2016-03-02',0
+),
+( 3,4,'2018-07-03',5
+);
+-----------------------------
+-- question 01 Question 1: Write an SQL query to report the first login date 
+-- for each player. Return the result table in any order.
+
+SELECT 
+min(event_date),player_id
+    
+FROM
+sql_practice02_2.activity
+group by player_id;
+
+
+-- Question 2: Write an SQL query to report the device that is 
+-- first logged in for each player. Return the result table in any 
+-- order.
+SELECT 
+player_id,min(device_id)
+    
+FROM
+sql_practice02_2.activity
+group by player_id;
+
+
+-- Question 3: Write an SQL query to report for each player and 
+-- date, how many games played so far by the player. That is, the 
+-- total number of games played by the player until that date. 
+-- Check the example for clarity. Return the result table in any 
+-- order.
+
+select player_id,sum(games_played) as games_played_so_far from sql_practice02_2.activity
+group by  player_id ;
+
+
+-- -------------------CASE 2-------------------
+-- Write an SQL query to report all the classes that have at least 
+-- five students. Return the result table in any order.
+CREATE TABLE  sql_practice02_2.courses(
+    student VARCHAR(255) NOT NULL,
+    class VARCHAR(10) NOT NULL
+);
+
+insert into sql_practice02_2.courses(student,class)value
+('A','math'),
+('B','english'),
+('C','math'),
+('D','science'),
+('E','biology'),
+('F','math');
+select * from sql_practice02_2.courses;
+
+select class from sql_practice02_2.courses
+order by class asc;
+
+-- -----------------CASE 3------------------
+-- Write an SQL query to report the name, population, and area of 
+-- the big countries.
+-- Table: World
+-- +-------------+---------+
+-- | Column Name | Type |
+-- +-------------+---------+
+-- | name | varchar |
+-- | continent | varchar |
+-- | area | int |
+-- | population | int |
+-- | gdp | int |
+-- +-------------+---------+
+
+
+
+
+

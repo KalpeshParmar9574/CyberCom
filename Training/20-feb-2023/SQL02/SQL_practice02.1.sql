@@ -169,4 +169,3 @@ select firstname,lastname  from sql_practice02.persons2
 join (select)
 
 
-
