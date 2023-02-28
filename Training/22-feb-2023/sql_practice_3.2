@@ -1,0 +1,57 @@
+create database sql_practice_3_2;
+-- ------------------------Case 1------------------------------
+-- Consider the following table structure for a blog:
+
+-- Write a query to retrieve the title and body of the five most 
+-- recent blog posts, along with the number of comments each post 
+-- has.
+
+CREATE TABLE sql_practice_3_2. blog_posts (
+ id INT PRIMARY KEY,
+ title VARCHAR(255),
+ body TEXT,
+ author_id INT,
+ created_at TIMESTAMP,
+ updated_at TIMESTAMP
+);
+CREATE TABLE sql_practice_3_2. blog_comments (
+ id INT PRIMARY KEY,
+ post_id INT,
+ body TEXT,
+ author_id INT,
+ created_at TIMESTAMP
+);
+
+
+select bp.title , bp.body,count(bc.post_id)as totalComment   from sql_practice_3_2 .blog_posts bp
+inner join sql_practice_3_2. blog_comments bc On bp.id= bc.post_id
+group by bp.id
+order by bp.created_at desc
+
+limit 5;
+
+-- -----------------------Case 2------------------------------
+-- Consider the following table structure for a social media 
+-- platform:
+
+-- Write a query to retrieve the name and number of posts for each 
+-- user who joined the platform in the year 2022, along with the 
+-- total number of likes received for each user's posts.
+
+CREATE TABLE users (
+ id INT PRIMARY KEY,
+ name VARCHAR(255),
+ created_at TIMESTAMP
+);
+CREATE TABLE posts (
+ id INT PRIMARY KEY,
+ user_id INT,
+ body TEXT,
+ created_at TIMESTAMP
+);
+CREATE TABLE likes (
+ id INT PRIMARY KEY,
+ user_id INT,
+ post_id INT,
+ created_at TIMESTAMP
+);

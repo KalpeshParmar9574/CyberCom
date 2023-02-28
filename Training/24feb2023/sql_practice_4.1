@@ -1,0 +1,143 @@
+-- sql practice 4.1
+
+-- Case 1
+-- Assume that you are working with a database containing
+-- information about a bookstore. The database has several tables:
+-- books table containing information about all books in the 
+-- bookstore. The table has the following columns:
+-- id: unique identifier for each book
+-- title: title of the book
+-- author_id: foreign key pointing to the authors table
+-- publication_date: publication date of the book
+-- authors table containing information about all authors of the 
+-- books in the bookstore. The table has the following columns:
+-- id: unique identifier for each author
+-- name: name of the author
+-- book_categories table containing information about all 
+-- categories of books in the bookstore. The table has the 
+-- following columns:
+-- id: unique identifier for each category
+-- name: name of the category
+-- book_category_mappings table containing information about which 
+-- books belong to which categories. The table has the following 
+-- columns:
+-- id: unique identifier for each mapping
+-- book_id: foreign key pointing to the books table
+-- category_id: foreign key pointing to the book_categories table
+
+create database bookstore ;
+CREATE TABLE bookstore.books (
+    id INT AUTO_INCREMENT PRIMARY KEY NOT NULL UNIQUE,
+    title VARCHAR(50),
+    author_id INT,
+    publication_date DATE,
+    FOREIGN KEY (author_id)
+        REFERENCES bookstore.authors (id)
+        ON DELETE CASCADE
+);
+ 
+CREATE TABLE bookstore.authors (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    autor_name VARCHAR(255)
+);
+CREATE TABLE bookstore.categories (
+    id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    categories_name VARCHAR(50)
+);
+CREATE TABLE bookstore.book_category_mapping (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    book_id INT,
+    category_id INT,
+    FOREIGN KEY (book_id)
+        REFERENCES bookstore.books (id)
+        ON DELETE CASCADE,
+    FOREIGN KEY (category_id)
+        REFERENCES bookstore.categories (id)
+        ON DELETE CASCADE
+);
+
+INSERT INTO bookstore.authors (autor_name) VALUES ('J.K. Rowling');
+INSERT INTO bookstore.authors (autor_name) VALUES ('Stephen King');
+INSERT INTO bookstore.authors (autor_name) VALUES ('Agatha Christie');
+
+
+INSERT INTO bookstore.categories (categories_name)
+VALUES ('Mystery'), ('Horror'), ('Fantasy');
+
+INSERT INTO bookstore.books (title, author_id, publication_date)
+VALUES 
+    ('Harry Potter and the Philosopher''s Stone', 1, '1997-06-26'), 
+    ('It', 2, '1986-09-15'), 
+    ('Murder on the Orient Express', 3, '1934-01-01');
+
+INSERT INTO bookstore.book_category_mapping (book_id, category_id)
+VALUES 
+    (1, 3),
+    (2, 2),
+    (3, 1);
+--  1. Write a query to find all books published in the year 2020.
+select * from bookstore.books where year(publication_date)=2020;
+
+-- 2. Write a query to find the name of the author who has 
+-- written the most number of books.
+SELECT a.autor_name 
+FROM bookstore.authors a 
+INNER JOIN (
+    SELECT author_id, COUNT(*) AS book_count 
+    FROM bookstore.books 
+    GROUP BY author_id 
+    ORDER BY book_count DESC 
+    LIMIT 1
+) b ON a.id = b.author_id;
+-- 3. Write a query to find the name of the category with the 
+-- most number of books.
+SELECT c.categories_name
+FROM bookstore.categories c
+JOIN bookstore.book_category_mapping bcm ON c.id = bcm.category_id
+JOIN bookstore.books b ON bcm.book_id = b.id
+GROUP BY c.id
+ORDER BY COUNT(*) DESC
+LIMIT 1;
+-- 4. Write a query to find the name of the author who has 
+-- written the most number of books in the category "fiction".
+
+SELECT a.autor_name
+FROM bookstore.authors a
+JOIN bookstore.books b ON a.id = b.author_id
+JOIN bookstore.book_category_mapping bcm ON b.id = bcm.book_id
+JOIN bookstore.categories c ON bcm.category_id = c.id
+WHERE c.categories_name = 'fiction'
+GROUP BY a.id, a.autor_name
+ORDER BY COUNT(*) DESC
+LIMIT 1;
+
+-- 5. Write a query to find the titles of the top 5 most popular 
+-- books. The popularity of a book is defined as the number of 
+-- times it has been borrowed by customers. Assume that 
+-- information about book borrowings is stored in a separate 
+-- table called book_borrowings with the following columns:
+-- id: unique identifier for each borrowing
+-- book_id: foreign key pointing to the books table
+-- customer_id: foreign key pointing to the customers 
+-- table
+-- borrow_date: date on which the book was borrowe
+create table bookstore.borrowing (
+id int not null primary key auto_increment,
+book_id int ,
+customer_id int ,
+foreign key (book_id ) references bookstore.books (id) on delete cascade,
+foreign key (customer_id ) references bookstore.customers(id) on delete cascade 
+);
+create table bookstore.customers(
+id int auto_increment primary key ,
+customer_name varchar(50)
+) 
+
+
+SELECT b.title, COUNT(*) as num_borrowings
+FROM books b
+JOIN book_borrowings bb ON b.id = bb.book_id
+GROUP BY b.id
+ORDER BY num_borrowings DESC
+LIMIT 5;
+

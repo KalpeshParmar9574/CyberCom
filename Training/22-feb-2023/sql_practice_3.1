@@ -1,0 +1,110 @@
+-- -----------------Case 1---------------------
+-- Create a table called "customers" with the following columns: id 
+-- (integer, primary key), name (text), email (text), and 
+-- created_at (timestamp).
+-- Insert the following data into the "customers" table:
+-- ---------------------------------------------------------------
+-- id name email created_at
+-- 1 John Smith johnsmith@gmail.com 2022-01-01 10:00:00
+-- 2 Jane Doe janedoe@yahoo.com 2022-01-02 11:00:00
+-- 3 Bob Johnson bobjohnson@hotmail.com 2022-01-03 12:00:00
+-- 4 Sarah Lee sarahlee@gmail.com 2022-01-04 13:00:00
+-- 5 David Kim davidkim@yahoo.com 2022-01-05 14:00:00
+-- ---------------------------------------------------------------
+
+create database sql_practice_3;
+CREATE TABLE sql_practice_3.customers (
+    id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    customer_name VARCHAR(255),
+    email VARCHAR(257),
+    timestamp_column TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+ insert into sql_practice_3 .customers (customer_name,email)value ('Jhon Smith ','jhonsmith@gmail.com'),
+ ('Jane Doe','janedoe@gmail.com'),('Bob Johnson','bobjohnson@gmail.com'),('Sarah Lee','sarahlee@gmail.com'),('David Kim','davidkim@gmail.com');
+ 
+
+-- 1. Write a query that selects all customers whose email 
+-- address ends with "@gmail.com".
+SELECT 
+    email
+FROM
+    sql_practice_3.customers
+WHERE
+    email LIKE ('%@gmail.com');
+--------------------------------------------
+-- 2. Write a query that selects the customer with the earliest 
+-- created_at date.
+SELECT customer_name, MIN(timestamp_column) AS earliest_created_date
+FROM sql_practice_3.customers
+GROUP BY customer_name
+ORDER BY earliest_created_date
+LIMIT 1;
+--  Write a query that selects the name and email of customers 
+-- who were created on or after January 3, 2022.
+SELECT 
+    customer_name, email
+FROM
+    sql_practice_3.customers
+WHERE
+    timestamp_column = 'January 3, 2022';
+    
+--     4. Write a query that updates the email address of the 
+-- customer with id=5 to "davidkim@gmail.com".
+
+UPDATE sql_practice_3. customers
+SET email = 'davidkim@gmail.com'
+WHERE id = 5;
+-- 5. Write a query that deletes the customer with id=2.
+delete  from sql_practice_3 . customers where id=3;
+-- 6. Write a query that calculates the total number of customers 
+-- in the "customers" table.
+SELECT COUNT(*) as total_customers FROM  sql_practice_3. customers;
+---------------------------------------------------
+
+--------------------- Case 2 ------------------------------ 
+-- Consider the following table structure for a store's inventory:
+
+-- Write a query to retrieve the name and price of all items in the 
+-- inventory where the quantity is greater than 0 and the category 
+-- is 'electronics', sorted in descending order by price.
+
+CREATE TABLE sql_practice_3. inventory (
+ id INT PRIMARY KEY,
+ _name VARCHAR(255),
+ quantity INT,
+ price DECIMAL(10,2),
+ category VARCHAR(50)
+);
+
+
+SELECT 
+    _name, price
+FROM
+    sql_practice_3.inventory
+WHERE
+    quantity > 0 AND category = 'electroinc'
+ORDER BY price DESC;
+-----------------------------------------------------------------------------------
+
+-- --------------------Case 3 -------------------------
+-- Consider the following table structure for a sales database:
+
+-- Write a query to retrieve the total sales for each month in the 
+-- year 2021, sorted in ascending order by month.
+
+
+CREATE TABLE sql_practice_3. sales (
+ id INT PRIMARY KEY,
+ date DATE,
+ customer_id INT,
+ product_id INT,
+ quantity INT,
+ total_price DECIMAL(10,2)
+);
+
+
+SELECT YEAR(date) as year, MONTH(date) as month, SUM(total) as total_sales
+FROM sales
+WHERE YEAR(date) = 2021
+GROUP BY YEAR(date), MONTH(date)
+ORDER BY YEAR(date), MONTH(date);

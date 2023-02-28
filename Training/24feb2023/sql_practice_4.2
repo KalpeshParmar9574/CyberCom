@@ -1,0 +1,95 @@
+-- sql practice 4.2
+
+-- Case 1
+-- Assume you are working with a company that has a database 
+-- containing information about employees and their departments. 
+-- The database has three tables:
+-- Employees table, which includes columns for employee ID, name, 
+-- department ID, and salary.
+-- Departments table, which includes columns for department ID and 
+-- department name.
+-- Salaries table, which includes columns for employee ID, salary, 
+-- and date.
+
+create database company ;
+CREATE TABLE company.employees (
+    id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    emp_name VARCHAR(255),
+    departmentID INT,
+    salary DECIMAL(10 , 2 ),
+    FOREIGN KEY (departmentID)
+        REFERENCES company.employees (id)
+        ON DELETE CASCADE
+);
+
+CREATE TABLE company.department (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    dept_name VARCHAR(20)
+);
+CREATE TABLE company.salaries (
+    emp_ID INT NOT NULL,
+    salary DECIMAL(10 , 2 ),
+    salary_date DATE,
+    FOREIGN KEY (emp_id)
+        REFERENCES company.employees (id)
+        ON DELETE CASCADE
+);
+
+
+INSERT INTO company.employees (emp_name, departmentID, salary)
+VALUES
+  ('John', 1, 50000.00),
+  ('Alice', 1, 60000.00),
+  ('Bob', 2, 55000.00),
+  ('Sarah', 3, 70000.00),
+  ('Mike', 3, 65000.00);
+
+
+INSERT INTO company.department (dept_name)
+VALUES
+  ('Sales'),
+  ('Marketing'),
+  ('Finance');
+
+
+INSERT INTO company.salaries (emp_ID, salary, salary_date)
+VALUES
+  (1, 50000.00, '2022-01-01'),
+  (1, 52000.00, '2022-02-01'),
+  (2, 55000.00, '2022-01-01'),
+  (2, 56000.00, '2022-02-01'),
+  (3, 70000.00, '2022-01-01'),
+  (3, 71000.00, '2022-02-01'),
+  (4, 65000.00, '2022-01-01'),
+  (4, 66000.00, '2022-02-01'),
+  (5, 60000.00, '2022-01-01'),
+  (5, 62000.00, '2022-02-01');
+  
+  -- . Write a query to return the names of all employees who work 
+-- in the 'Sales' department.
+SELECT 
+    e.emp_name
+FROM
+    company.employees e
+        JOIN
+    company.department d ON e.departmentID = d.id
+WHERE
+    d.dept_name = 'Sales'
+GROUP BY e.emp_name , e.id;
+
+-- 2. Write a query to return the total number of employees in 
+-- each department, ordered by department name.
+
+SELECT d.dept_name, COUNT(*) as num_employees
+FROM company.department d
+JOIN company.employees e ON d.id = e.departmentID
+GROUP BY d.id
+ORDER BY d.dept_name;
+
+-- 3. Write a query to return the average salary for each 
+-- department, ordered by department name.
+select avg(e.salary) as avg_salary from company . department e join 
+i
+
+  
+  

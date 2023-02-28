@@ -95,7 +95,13 @@ order by class asc;
 -- | gdp | int |
 -- +-------------+---------+
 
-
+CREATE TABLE sql_practice02_2.world (
+    _name VARCHAR(150) NOT NULL UNIQUE PRIMARY KEY,
+    continent VARCHAR(80),
+    area INT,
+    population INT,
+    gdp INT
+);
 
 
 
