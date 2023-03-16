@@ -1,0 +1,136 @@
+<app-header>
+</app-header>
+
+
+<div>
+    <div class="container my-5">
+        <div class="d-flex  info ">
+          <div>
+            <p>
+                Loan Calculator
+            </p>
+          </div> 
+          <div>
+            <button class="bg-info">
+                How To Apply
+            </button>
+          </div>
+          
+        </div>
+        <div class="d-flex btn_contact">
+          <div  class="bg-light btn1" id="btn_call">
+            <button class="bg "  (click)="showContent()">Give me call back</button>
+          </div> 
+          <div class="btn1 bg-light">
+            <button class="" (click)="hideContent()">Emai calculator</button>
+        </div>
+          </div>
+           
+    </div>
+
+    <!-- new tab content displaced here -->
+  
+
+    
+
+    <div class="container " id="main" *ngIf="!show">
+        <div class="inp_op d-flex">
+            <div class="inp">
+                <!-- input range values are here -->
+
+                <div>
+                    <div class="d-flex inp_container" id="">
+                     <div>  <label for="customRange1" class="form-label">Loan Amount</label></div>  
+                      <div>
+                        <p>
+                            {{loanAmount}}
+                        </p>
+                      </div> 
+                    </div>
+                    <input type="range" class="form-range" min="100000" max="50000000" step="1"  
+                    [(ngModel)]="loanAmount"  (change)="calculate()"   id="customRange1">
+                </div>
+                <div>
+                    <div class="d-flex inp_container" id="">
+                     <div>  <label for="customRange1" class="form-label">No. of Months</label></div>  
+                      <div>
+                        <p>
+                            {{noMonths}}
+                        </p>
+                      </div> 
+                    </div>
+                    <input type="range" class="form-range" min="120" max="360"  step="1"  [(ngModel)]="noMonths"  (change)="calculate()" id="customRange1">
+                </div>
+                <div>
+                    <div class="d-flex inp_container" id="">
+                     <div>  <label for="customRange1" class="form-label">Rate Of Interst[ROI]</label></div>  
+                      <div>
+                        <p>
+                            {{ROI}}
+                        </p>
+                      </div> 
+                    </div>
+                    <input type="range" class="form-range" min="8.00" max="16.00" step="0.01"  [(ngModel)]="ROI"  (change)="calculate()" id="customRange1">
+                </div>
+             
+
+            </div>
+            <div class="opcontainer">
+                    <ul>
+                        <li>
+                            <p class="h5">Monthly EMI</p>
+                            <p>{{monthlyPayable.toFixed(2)}}</p>
+                        </li>
+                        <li>
+                            <p class="h5">Total Intrest</p>
+                            <p>{{totalIntrest.toFixed(2)}}</p>
+                        </li>
+                        <li>
+                            <p class="h5">Payable Amount</p>
+                            <p>{{payableAmount}}</p>
+                        </li>
+                        <li>
+                            <p class="h5">Intrest Precentage</p>
+                            <p>{{interestPercentage}}</p>
+                        </li>
+                    </ul>
+
+            </div>
+        </div>
+
+        <div class="op_table">
+            <table class="table table-light my-5 table-striped-columns">
+               <tr>
+                <th>
+                    payment No.
+                </th>
+                <th>
+                    Begining Balance
+                </th>
+                <th>
+                    EMI
+                </th>
+                <th>
+                    Principal
+                </th>
+                <th>
+                    Ending Balance
+                </th>
+               </tr>
+               <tr *ngFor="let data of tableData">
+                <td>{{data.month}}</td>
+                <td>{{data.beginig.toFixed(2)}}</td>
+                <td>{{data.Emi.toFixed(2)}}</td>
+                <td>{{data.principal.toFixed(2)}}</td>
+                <td>{{data.end.toFixed(2)}}</td>
+               
+               </tr>
+              </table>
+
+        </div>
+    </div>
+    <div *ngIf="show">
+        <app-contact></app-contact>
+    </div>
+    
+</div>
