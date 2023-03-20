@@ -1,11 +1,40 @@
-<p>users works!</p>
+<h3>dashBoard</h3>
 
 <a routerLink="add-user"> Add user </a>
 
-<ul>
+
+<table>
+    <tr>
+        <th>
+            id
+        </th>
+        <th>
+            name
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Update
+        </th>
+        <th>
+            Delete
+        </th>
+    </tr>
+    <tr  *ngFor="let user of userData">
+        <td>{{user.id}}</td>
+        <td>{{user.userName}}</td>
+        <td>{{user.email}}</td>
+        <td><button (click)="edit(user)">Update</button></td>
+        <td><button (click)="delete(user)" >Delete</button></td>
+
+    </tr>
+</table>
+
+<!-- <ul>
     <li *ngFor="let user of userData">
         {{user.name}} <br>
         {{user.email}}
 
     </li>
-</ul>
+</ul> -->
