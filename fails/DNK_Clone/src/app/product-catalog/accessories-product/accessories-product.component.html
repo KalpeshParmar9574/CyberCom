@@ -1,7 +1,15 @@
 
 
 
-<app-product-card ></app-product-card>
+<p>{{products[0].name }}</p>
+
+<ul>
+    <li *ngFor="let prod of products">
+        {{ prod.name}}
+        {{prod.price}} 
+
+    </li>
+</ul>
 
 <!-- <app-product-card [prodData]="products"></app-product-card> -->
  

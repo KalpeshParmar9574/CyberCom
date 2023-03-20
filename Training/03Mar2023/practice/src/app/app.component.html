@@ -1,0 +1,13 @@
+<p [ngStyle]="{'font-size.px':fontSize}">App component </p>
+<ng-template [ngIf]="blueClass">
+  <p>this is ng tamplate directive </p>
+</ng-template>
+<button (click)="blueClass=!blueClass"
+[ngClass]="{
+  blueClass
+}"></button>
+<input type="text" (keyup)="onChange($event)" (value)="text">
+<app-new [data]="text">
+  <p [ngStyle]="{'font-size.px':fontSize}" >content projection </p>
+
+</app-new>

@@ -1,0 +1,17 @@
+<h1>Angular Router App</h1>
+<!-- This nav gives you links to click, which tells the router which route to use (defined in the routes constant in  AppRoutingModule) -->
+<nav>
+  <ul>
+    <li><a routerLink="/first-component" routerLinkActive="active" >Login</a></li> 
+    <li><a routerLink="/second-component" routerLinkActive="active" >Users</a></li>
+  </ul>
+</nav>
+
+<ul>
+  <li *ngFor="let item of department "  (click)="select(item.id)">{{item.id}} {{item.name}}</li>
+</ul>
+
+<h1>heelo</h1>
+<!-- The routed views render in the <router-outlet>-->
+
+  <router-outlet></router-outlet>

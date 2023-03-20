@@ -2,16 +2,17 @@
 
 <div id="todo">
 <input type="text"  placeholder="Enter your task here" #task class="tx_inp"> 
-<button (click)="addTask(task.value,sel.value)" class="btn" >Add Task in List</button> 
-<select   *ngFor="let opt of priority" #sel >
-  <option [value]="opt">{{opt}}</option>
+
+<select   #priority >
+  <option  *ngFor="let item of priorities">{{item}}</option>
 
 </select>
 <br>
+<button (click)="addTask(task.value, priority.value)" class="btn" >Add Task in List</button> 
 
-<ul *ngFor="let task of taskArr">
-  <li [style.color]="task.priority==='high'?'red':task.priority==='medium'?'blue':'green'">
-{{task.task}}
+<ul *ngFor="let task of taskArr;let id = index">
+  <li [style.color]="task.priority==='heigh'?'red':task.priority==='medium'?'blue':'green'">
+{{task.task}}  <button (click)="remove(id)"><span>*</span></button>
   </li>
 </ul>
 

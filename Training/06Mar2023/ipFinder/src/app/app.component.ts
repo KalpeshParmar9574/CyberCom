@@ -1,37 +1,29 @@
 import { Component } from '@angular/core';
 import { IpInfoService } from './apiservice.service';
+import { HttpClient } from '@angular/common/http';
+import { SocialAuthService } from "@abacritt/angularx-social-login";
+import { GoogleLoginProvider } from "@abacritt/angularx-social-login";
 
+import { SocialUser } from "@abacritt/angularx-social-login";
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent { 
   
-  ipAddress: string = '';
-  isIpAddressValid: boolean = true;
-  ipDetails: any;
+  user: SocialUser = new SocialUser;
+  loggedIn: boolean = false;
 
+  constructor(private authService: SocialAuthService) { }
 
-  title = 'ipFinder';
-
-  constructor(private ipInfoService: IpInfoService) { }
-
-  onSubmit() {
-    // if (this.validateIpAddress(this.ipAddress)) {
-      this.ipInfoService.getIpDetails(this.ipAddress)
-      .subscribe((details) => {
-        this.ipDetails = details;
-      });
-   
-    // } else {
-    //   // set error for invalid IP address
-    //   this.isIpAddressValid = false;
-    // }
+  ngOnInit() {
+    this.authService.authState.subscribe((user) => {
+      this.user = user;
+      this.loggedIn = (user != null);
+    });
   }
-  // validateIpAddress(ipAddress: string): boolean {
-  //   const pattern = /^([0-9]{1,3}\.){3}[0-9]{1,3}$/;
-  //   return pattern.test(ipAddress);
-  // }
+
+ 
   
 }

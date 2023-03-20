@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+//import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,20 +7,51 @@ import { FormsModule } from '@angular/forms';
 })
 export class AppComponent {
   title = 'todoApp';
-  priority:string[]=['high','medium','low']
+  priorities=['heigh','medium','low']
  taskArr:any[]=[]
 
-
-  addTask(item: string, priority: number) {
-    const  tempTask ={
+  lastindex:any 
+  addTask(item: string, priority: string) {
+    const tempTask: {
+      task: string,
+      priority: string
+    } = {
       task: item,
-      priority:priority
+        priority: priority
+  
     }
-    this.taskArr.push(tempTask);
+        debugger
+      
+    if (tempTask.task !== "") {
+      
+  
+
+    if (tempTask.priority === "heigh") {
+      this.taskArr.unshift(tempTask)
+    }
+    else if (tempTask.priority === "low") {
+     this.taskArr.push(tempTask)
+    } else {
+
+      const lastIndex = this.taskArr. reduce((lastIndex, tempTask, index) => {
+        
+        if (tempTask.priority == "heigh") {
+          return index;
+        }
+        return lastIndex;
+      }, -1)
+      this.taskArr.splice(lastIndex + 1, 0, tempTask)
+      
+   }
 
 
+  
+
+
+    }
   }
-  // removeTask(id: number) {
-  //   // this.tasks = this.tasks.filter(item => item.id !== id);
-  // }
+  
+  remove(id:number) {
+    this.taskArr.splice(id)
+  }
 }

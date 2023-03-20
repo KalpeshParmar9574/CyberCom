@@ -1,0 +1,11 @@
+<p>users works!</p>
+
+<a routerLink="add-user"> Add user </a>
+
+<ul>
+    <li *ngFor="let user of userData">
+        {{user.name}} <br>
+        {{user.email}}
+
+    </li>
+</ul>
